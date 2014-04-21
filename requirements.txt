@@ -1,5 +1,6 @@
 Django==1.6.2
-django-localflavor
+django-localflavor==1.0
+django-registration==1.0
 django-picklefield==0.3.1
 django-toolbelt==0.0.1
 dj-database-url==0.2.2
@@ -7,6 +8,6 @@ dj-static==0.0.5
 gunicorn==18.0
 psycopg2==2.5.2
 requests==2.2.1
-south
+south==0.8.4
 static==0.4
 wsgiref==0.1.2

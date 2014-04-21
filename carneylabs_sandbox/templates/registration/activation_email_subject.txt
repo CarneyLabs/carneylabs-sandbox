@@ -1,0 +1,4 @@
+Activation Key: {{ activation_key }}
+Expiration Days: {{ expiration_days }}
+Site Domain: {{ site.domain }}
+Site Name: {{ site.name }}

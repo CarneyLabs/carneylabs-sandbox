@@ -26,10 +26,7 @@ TEMPLATE_DEBUG = False
 
 ALLOWED_HOSTS = []
 
-
-# Application definition
-
-INSTALLED_APPS = (
+DEFAULT_APPS = (
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -37,6 +34,21 @@ INSTALLED_APPS = (
     'django.contrib.messages',
     'django.contrib.staticfiles',
 )
+
+THIRD_PARTY_APPS = (
+    'south',
+    'registration',
+)
+
+LOCAL_APPS = (
+    'carneylabs_sandbox',
+)
+
+INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
+
+ACCOUNT_ACTIVATION_DAYS = 7
+
+REGISTRATION_OPEN = True
 
 TEMPLATE_LOADERS = (
     'django.template.loaders.filesystem.Loader',
@@ -63,6 +75,8 @@ MIDDLEWARE_CLASSES = (
 ROOT_URLCONF = 'carneylabs_sandbox.urls'
 
 WSGI_APPLICATION = 'carneylabs_sandbox.wsgi.application'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 from django.contrib.messages import constants as message_constants
 

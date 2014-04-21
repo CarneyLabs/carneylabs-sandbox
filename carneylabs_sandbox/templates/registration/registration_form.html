@@ -1,0 +1,35 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport"
+          content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap-theme.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <form class="form" action="{% url 'registration_register' %}" method="post">
+            {% csrf_token %}
+            {% for field in form %}
+                <div class="form-group">
+                    {{ field.label_tag }}
+                    <input id="{{ field.id_for_label }}"
+                           class="form-control"
+                           name="{{ field.html_name }}"
+                           type="{% if 'password' in field.html_name %}password{% else %}text{% endif %}">
+                </div>
+            {% endfor %}
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    </div>
+
+    <script src="{{ STATIC_URL }}js/jquery-2.0.3.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+</body>
+
+</html>
