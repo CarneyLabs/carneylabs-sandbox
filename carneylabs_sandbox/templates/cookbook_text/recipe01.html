@@ -1,0 +1,43 @@
+<!doctype html>
+
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Cookbook | Text | Recipe 01</title>
+    <meta name="viewport"
+          content="user-scalable=no, width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="{{ STATIC_URL }}css/bootstrap-theme.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Recipe 01 <small>Processing a String One Character at a Time</small></h1>
+
+        {# Form stuff... #}
+        {% if form %}
+            <p class="lead">
+                Enter any string in the field below. Choose a method and press <strong>Submit</strong>.
+            </p>
+            <form class="form" action="{% url 'text:recipe' '1' %}" method="post">
+                {% csrf_token %}
+                {% include 'bootstrap-form-basic.html' %}
+                <button class="btn btn-primary" type="submit">Submit</button>
+            </form>
+        {% endif %}
+
+        {# Word stuff... #}
+        {% if word %}
+            <p>
+                Your new word: <strong>{{ word }}</strong>
+            </p>
+            <a class="btn btn-primary" href="{% url 'text:recipe' '1' %}">Try another</a>
+        {% endif %}
+    </div>
+
+    <script src="{{ STATIC_URL }}js/jquery-2.0.3.min.js"></script>
+    <script src="{{ STATIC_URL }}js/bootstrap.min.js"></script>
+</body>
+
+</html>

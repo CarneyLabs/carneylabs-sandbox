@@ -10,7 +10,9 @@ https://docs.djangoproject.com/en/1.6/ref/settings/
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 import os
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
+SITE_ROOT = os.path.abspath(os.path.join(BASE_DIR, os.path.pardir))
 
 
 # Quick-start development settings - unsuitable for production
@@ -42,6 +44,7 @@ THIRD_PARTY_APPS = (
 
 LOCAL_APPS = (
     'carneylabs_sandbox',
+    'gallery',
 )
 
 INSTALLED_APPS = DEFAULT_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -77,6 +80,9 @@ ROOT_URLCONF = 'carneylabs_sandbox.urls'
 WSGI_APPLICATION = 'carneylabs_sandbox.wsgi.application'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+
+MEDIA_ROOT = os.path.join(SITE_ROOT, 'media/')
+MEDIA_URL = '/media/'
 
 from django.contrib.messages import constants as message_constants
 
@@ -143,6 +149,8 @@ STATICFILES_DIRS = (
 TEMPLATE_DIRS = (
     os.path.join(BASE_DIR, 'templates'),
 )
+
+# LOGIN_REDIRECT_URL = ''
 
 try:
     from local_settings import *
