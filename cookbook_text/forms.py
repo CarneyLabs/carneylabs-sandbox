@@ -19,3 +19,19 @@ class Recipe01Form(BootstrapFormMixin, forms.Form):
 
     string = forms.CharField(max_length=100)
     method = forms.ChoiceField(choices=METHODS)
+
+
+class Recipe02Form(BootstrapFormMixin, forms.Form):
+    CONVERSION_METHODS = (
+        ('A', 'Characters to Numeric Codes'),
+        ('B', 'Numeric Codes to Characters'),
+    )
+
+    ENCODING_METHODS = (
+        ('I', 'ASCII (ISO)'),
+        ('U', 'Unicode')
+    )
+
+    sequence = forms.CharField(max_length=100)
+    conversion_method = forms.ChoiceField(choices=CONVERSION_METHODS)
+    encoding_method = forms.ChoiceField(choices=ENCODING_METHODS)

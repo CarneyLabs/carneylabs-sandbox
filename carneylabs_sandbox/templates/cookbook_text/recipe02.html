@@ -1,0 +1,26 @@
+{% extends 'cookbook_text/base.html' %}
+
+{% block page-content %}
+    <h1>Recipe 02 <small>Converting Between Characters and Numeric Codes</small></h1>
+
+    {# Form stuff... #}
+    {% if form %}
+        <p class="lead">
+            Enter either a string or a space-separated sequence of numbers below. Choose a conversion method and
+            and an encoding method and press <strong>Submit</strong>.
+        </p>
+        <form class="form" action="{% url 'text:recipe' '2' %}" method="post">
+            {% csrf_token %}
+            {% include 'bootstrap-form-basic.html' %}
+            <button class="btn btn-primary" type="submit">Submit</button>
+        </form>
+    {% endif %}
+
+    {# Sequence stuff... #}
+    {% if sequence %}
+        <p>
+            Your new sequence: <strong>{{ sequence }}</strong>
+        </p>
+        <a class="btn btn-primary" href="{% url 'text:recipe' '2' %}">Try another</a>
+    {% endif %}
+{% endblock %}
