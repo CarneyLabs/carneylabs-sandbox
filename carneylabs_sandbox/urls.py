@@ -31,3 +31,8 @@ urlpatterns += patterns('',
 urlpatterns += patterns('',
     url(r'^text/', include('cookbook_text.urls', namespace='text')),
 )
+
+# Sports store views...
+urlpatterns += patterns('',
+    url(r'^sports-store/', include('sports_store.urls', namespace='sports_store')),
+)

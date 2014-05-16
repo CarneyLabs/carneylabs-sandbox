@@ -1,0 +1,56 @@
+[
+    {
+        "name": "Kayak",
+        "description": "A boat for one person",
+        "category": "watersports",
+        "price": 275.00
+    },
+    {
+        "name": "Lifejacket",
+        "description": "Protective and fashionable",
+        "category": "watersports",
+        "price": 48.95
+    },
+    {
+        "name": "Soccer Ball",
+        "description": "FIFA-approved size and weight",
+        "category": "soccer",
+        "price": 19.50
+    },
+    {
+        "name": "Corner Flags",
+        "description": "Give your playing field a professional touch",
+        "category": "soccer",
+        "price": 34.95
+    },
+    {
+        "name": "Stadium",
+        "description": "Flat-packed 35,000-seat stadium",
+        "category": "soccer",
+        "price": 79500.00
+    },
+    {
+        "name": "Thinking Cap",
+        "description": "Improve your brain efficiency by 75%",
+        "category": "chess",
+        "price": 16.00
+    },
+    {
+        "name": "Unsteady Chair",
+        "description": "Secretly give your opponent a disadvantage",
+        "category": "chess",
+        "price": 29.95
+    },
+    {
+        "name": "Human Chess Board",
+        "description": "A fun game for the family",
+        "category": "chess",
+        "price": 75.00
+    },
+    {
+        "name": "Bling-Bling King",
+        "description": "Gold-plated, diamond-studded King",
+        "category": "chess",
+        "price": 1200.00
+    }
+]
