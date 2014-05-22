@@ -9,3 +9,17 @@ class Product(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class Order(models.Model):
+    name = models.CharField(max_length=100)
+    street = models.CharField(max_length=100)
+    city = models.CharField(max_length=100)
+    state = models.CharField(max_length=2)
+    zip = models.CharField(max_length=10)
+    country = models.CharField(max_length=100)
+    giftwrap = models.BooleanField(default=False)
+    products = models.ManyToManyField(Product)
+
+    def __unicode__(self):
+        return self.name
