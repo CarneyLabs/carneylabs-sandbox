@@ -19,7 +19,7 @@ class Order(models.Model):
     zip = models.CharField(max_length=10)
     country = models.CharField(max_length=100)
     giftwrap = models.BooleanField(default=False)
-    products = models.ManyToManyField(Product)
+    products = models.TextField()
 
     def __unicode__(self):
         return self.name

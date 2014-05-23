@@ -23,6 +23,7 @@ var sportsStore = angular.module("sportsStore", ["customFilters", "cart", "ngRou
     .constant("productListActiveClass", "btn-primary")
     .constant("productListPageCount", 3)
     .constant("dataUrl", "http://carneylabs-sandbox.com:8009/sports-store/products")
+    .constant("orderUrl", "http://carneylabs-sandbox.com:8009/sports-store/orders")
     .controller("SportsStoreController", SportsStoreController)
     .controller("ProductListController", ProductListController);
 
@@ -32,7 +33,10 @@ var sportsStore = angular.module("sportsStore", ["customFilters", "cart", "ngRou
 
 function SportsStoreController($scope,
                                $http,
-                               dataUrl)
+                               $location,
+                               dataUrl,
+                               orderUrl,
+                               cart)
 {
     $scope.data = {};
 
@@ -43,6 +47,23 @@ function SportsStoreController($scope,
         .error(function(error) {
             $scope.data.error = error;
         });
+
+    $scope.sendOrder = function(shippingDetails) {
+        var order = angular.copy(shippingDetails);
+        order.products = cart.getProducts();
+
+        $http.post(orderUrl, order)
+            .success(function(data) {
+                $scope.data.orderId = data.id;
+                cart.getProducts().length = 0;
+            })
+            .error(function(error) {
+                $scope.data.orderError = error;
+            })
+            .finally(function() {
+                $location.path("/complete");
+            })
+    }
 }
 
 function ProductListController($scope,
